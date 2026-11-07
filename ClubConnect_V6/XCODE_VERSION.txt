@@ -1,0 +1,4 @@
+Target development environment: Xcode 26.1.1
+Swift language mode: Swift 6
+Minimum deployment target: iOS 17.0
+Frameworks used: UIKit, CoreData, PhotosUI, MapKit, CoreLocation

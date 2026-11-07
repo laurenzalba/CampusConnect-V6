@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="26100" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NAV-001">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="26100"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="SCN-NAV">
+            <objects>
+                <navigationController id="NAV-001" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NAV-BAR"/>
+                    <connections>
+                        <segue destination="WELCOME-VC" kind="relationship" relationship="rootViewController" id="SEG-ROOT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-NAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1150" y="40"/>
+        </scene>
+
+        <!--Welcome View Controller-->
+        <scene sceneID="SCN-WELCOME">
+            <objects>
+                <viewController id="WELCOME-VC" customClass="WelcomeViewController" customModule="ClubConnect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WELCOME-VIEW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="WELCOME-STACK">
+                                <rect key="frame" x="24" y="123" width="345" height="593"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LOGO-IMAGE">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="82"/>
+                                        <constraints><constraint firstAttribute="height" constant="82" id="W1"/></constraints>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="PHOTO-BUTTON">
+                                        <constraints><constraint firstAttribute="height" constant="38" id="W-PHOTO"/></constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Choose Photo"/>
+                                        <connections><action selector="choosePhotoTapped:" destination="WELCOME-VC" eventType="touchUpInside" id="ACT-PHOTO"/></connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TITLE-LABEL">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Find your people. Join a campus club today." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="SUBTITLE-LABEL">
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="YOUR NAME" translatesAutoresizingMaskIntoConstraints="NO" id="NAME-PROMPT">
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="Enter your name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAME-FIELD">
+                                        <constraints><constraint firstAttribute="height" constant="44" id="W2"/></constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" textContentType="name"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="REMINDER-ROW">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Send me meeting reminders" translatesAutoresizingMaskIntoConstraints="NO" id="REMINDER-LABEL">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REMINDER-SPACER"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REMINDER-SWITCH">
+                                                <color key="onTintColor" systemColor="systemGreenColor"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="JOINING AS" translatesAutoresizingMaskIntoConstraints="NO" id="ROLE-PROMPT">
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ROLE-SEGMENT">
+                                        <constraints><constraint firstAttribute="height" constant="36" id="W3"/></constraints>
+                                        <segments><segment title="Member"/><segment title="Officer"/></segments>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="JOIN-BUTTON">
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints><constraint firstAttribute="height" constant="50" id="W4"/></constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Join the Club"><color key="titleColor" systemColor="systemBackgroundColor"/></state>
+                                        <connections><action selector="joinButtonTapped:" destination="WELCOME-VC" eventType="touchUpInside" id="ACT-JOIN"/></connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="BROWSE-BUTTON">
+                                        <constraints><constraint firstAttribute="height" constant="46" id="W5"/></constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Browse Clubs"/>
+                                        <connections><action selector="browseClubsTapped:" destination="WELCOME-VC" eventType="touchUpInside" id="ACT-BROWSE"/></connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="MAP-BUTTON">
+                                        <constraints><constraint firstAttribute="height" constant="44" id="W-MAP"/></constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Campus Map"/>
+                                        <connections><action selector="campusMapTapped:" destination="WELCOME-VC" eventType="touchUpInside" id="ACT-MAP"/></connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-WELCOME"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WELCOME-STACK" firstAttribute="top" secondItem="SAFE-WELCOME" secondAttribute="top" constant="20" id="WC1"/>
+                            <constraint firstItem="WELCOME-STACK" firstAttribute="leading" secondItem="SAFE-WELCOME" secondAttribute="leading" constant="24" id="WC2"/>
+                            <constraint firstItem="SAFE-WELCOME" firstAttribute="trailing" secondItem="WELCOME-STACK" secondAttribute="trailing" constant="24" id="WC3"/>
+                            <constraint firstItem="SAFE-WELCOME" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WELCOME-STACK" secondAttribute="bottom" constant="16" id="WC4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Campus Club Connect" id="NAVITEM-WELCOME"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="NAME-FIELD" id="OUT-NAME"/>
+                        <outlet property="profileImageView" destination="LOGO-IMAGE" id="OUT-PROFILE"/>
+                        <outlet property="reminderSwitch" destination="REMINDER-SWITCH" id="OUT-SWITCH"/>
+                        <outlet property="roleSegmentedControl" destination="ROLE-SEGMENT" id="OUT-ROLE"/>
+                        <outlet property="titleLabel" destination="TITLE-LABEL" id="OUT-TITLE"/>
+                        <segue destination="CONFIRM-VC" kind="show" identifier="ShowConfirmationSegue" id="SEG-CONFIRM"/>
+                        <segue destination="CLUBLIST-VC" kind="show" identifier="BrowseClubsSegue" id="SEG-BROWSE"/>
+                        <segue destination="MAP-VC" kind="show" identifier="ShowCampusMapSegue" id="SEG-MAP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-WELCOME" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-300" y="40"/>
+        </scene>
+
+        <!--Club List View Controller-->
+        <scene sceneID="SCN-CLUBLIST">
+            <objects>
+                <viewController id="CLUBLIST-VC" customClass="ClubListViewController" customModule="ClubConnect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CLUBLIST-VIEW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLine" rowHeight="72" estimatedRowHeight="72" translatesAutoresizingMaskIntoConstraints="NO" id="CLUB-TABLE">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClubCell" rowHeight="72" id="CLUB-CELL" customClass="ClubCell" customModule="ClubConnect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44" width="393" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CLUB-CELL" id="CELL-CONTENT">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CELL-ICON">
+                                                    <rect key="frame" x="16" y="16" width="40" height="40"/>
+                                                    <constraints><constraint firstAttribute="width" constant="40" id="CCW"/><constraint firstAttribute="height" constant="40" id="CCH"/></constraints>
+                                                    <color key="tintColor" systemColor="systemGreenColor"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Club Name" translatesAutoresizingMaskIntoConstraints="NO" id="CELL-NAME">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Category" translatesAutoresizingMaskIntoConstraints="NO" id="CELL-CATEGORY">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CELL-ICON" firstAttribute="leading" secondItem="CELL-CONTENT" secondAttribute="leadingMargin" id="CLC1"/>
+                                                <constraint firstItem="CELL-ICON" firstAttribute="centerY" secondItem="CELL-CONTENT" secondAttribute="centerY" id="CLC2"/>
+                                                <constraint firstItem="CELL-NAME" firstAttribute="leading" secondItem="CELL-ICON" secondAttribute="trailing" constant="14" id="CLC3"/>
+                                                <constraint firstItem="CELL-NAME" firstAttribute="top" secondItem="CELL-CONTENT" secondAttribute="top" constant="14" id="CLC4"/>
+                                                <constraint firstItem="CELL-CATEGORY" firstAttribute="leading" secondItem="CELL-NAME" secondAttribute="leading" id="CLC5"/>
+                                                <constraint firstItem="CELL-CATEGORY" firstAttribute="top" secondItem="CELL-NAME" secondAttribute="bottom" constant="4" id="CLC6"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="CELL-NAME" secondAttribute="trailing" id="CLC7"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="CELL-CATEGORY" secondAttribute="trailing" id="CLC8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryLabel" destination="CELL-CATEGORY" id="CELL-OUT-CAT"/>
+                                            <outlet property="clubIconImageView" destination="CELL-ICON" id="CELL-OUT-ICON"/>
+                                            <outlet property="clubNameLabel" destination="CELL-NAME" id="CELL-OUT-NAME"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CLUBLIST-VC" id="TABLE-DATASOURCE"/>
+                                    <outlet property="delegate" destination="CLUBLIST-VC" id="TABLE-DELEGATE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-CLUBLIST"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CLUB-TABLE" firstAttribute="top" secondItem="SAFE-CLUBLIST" secondAttribute="top" id="L1"/>
+                            <constraint firstItem="CLUB-TABLE" firstAttribute="leading" secondItem="SAFE-CLUBLIST" secondAttribute="leading" id="L2"/>
+                            <constraint firstItem="SAFE-CLUBLIST" firstAttribute="trailing" secondItem="CLUB-TABLE" secondAttribute="trailing" id="L3"/>
+                            <constraint firstItem="SAFE-CLUBLIST" firstAttribute="bottom" secondItem="CLUB-TABLE" secondAttribute="bottom" id="L4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Campus Clubs" id="NAVITEM-CLUBS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="ADD-CLUB-BUTTON">
+                            <connections><action selector="addClubTapped:" destination="CLUBLIST-VC" id="ACT-ADD-CLUB"/></connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="REFRESH-CLUB-BUTTON">
+                            <connections><action selector="refreshTapped:" destination="CLUBLIST-VC" id="ACT-REFRESH-CLUB"/></connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="CLUB-TABLE" id="OUT-TABLE"/>
+                        <segue destination="CONFIRM-VC" kind="show" identifier="ShowClubDetailSegue" id="SEG-CLUB-DETAIL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-CLUBLIST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="-370"/>
+        </scene>
+
+        <!--Confirmation View Controller-->
+        <scene sceneID="SCN-CONFIRM">
+            <objects>
+                <viewController id="CONFIRM-VC" customClass="ConfirmationViewController" customModule="ClubConnect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CONFIRM-VIEW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="CONFIRM-STACK">
+                                <rect key="frame" x="24" y="123" width="345" height="570"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="REGISTRATION SUMMARY (MP1)" translatesAutoresizingMaskIntoConstraints="NO" id="SUMMARY-HEADING">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MESSAGE-CARD">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Your confirmation will appear here." lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="MESSAGE-LABEL">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="MESSAGE-LABEL" firstAttribute="top" secondItem="MESSAGE-CARD" secondAttribute="top" constant="16" id="MC1"/>
+                                            <constraint firstItem="MESSAGE-LABEL" firstAttribute="leading" secondItem="MESSAGE-CARD" secondAttribute="leading" constant="16" id="MC2"/>
+                                            <constraint firstAttribute="trailing" secondItem="MESSAGE-LABEL" secondAttribute="trailing" constant="16" id="MC3"/>
+                                            <constraint firstAttribute="bottom" secondItem="MESSAGE-LABEL" secondAttribute="bottom" constant="16" id="MC4"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="108" id="MC5"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CLUB-DETAIL-STACK">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="CLUB DETAIL" translatesAutoresizingMaskIntoConstraints="NO" id="DETAIL-HEADING">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DETAIL-ICON">
+                                                <constraints><constraint firstAttribute="height" constant="80" id="DI1"/></constraints>
+                                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Club Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DETAIL-NAME">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="CATEGORY" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DETAIL-CATEGORY">
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Club description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="DETAIL-DESCRIPTION">
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-CONFIRM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CONFIRM-STACK" firstAttribute="top" secondItem="SAFE-CONFIRM" secondAttribute="top" constant="20" id="FC1"/>
+                            <constraint firstItem="CONFIRM-STACK" firstAttribute="leading" secondItem="SAFE-CONFIRM" secondAttribute="leading" constant="24" id="FC2"/>
+                            <constraint firstItem="SAFE-CONFIRM" firstAttribute="trailing" secondItem="CONFIRM-STACK" secondAttribute="trailing" constant="24" id="FC3"/>
+                            <constraint firstItem="SAFE-CONFIRM" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CONFIRM-STACK" secondAttribute="bottom" constant="20" id="FC4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Confirmation" id="NAVITEM-CONFIRM"/>
+                    <connections>
+                        <outlet property="clubCategoryLabel" destination="DETAIL-CATEGORY" id="OUT-DETAIL-CAT"/>
+                        <outlet property="clubDescriptionLabel" destination="DETAIL-DESCRIPTION" id="OUT-DETAIL-DESC"/>
+                        <outlet property="clubDetailStackView" destination="CLUB-DETAIL-STACK" id="OUT-DETAIL-STACK"/>
+                        <outlet property="clubIconImageView" destination="DETAIL-ICON" id="OUT-DETAIL-ICON"/>
+                        <outlet property="clubNameLabel" destination="DETAIL-NAME" id="OUT-DETAIL-NAME"/>
+                        <outlet property="messageLabel" destination="MESSAGE-LABEL" id="OUT-MESSAGE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-CONFIRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1420" y="40"/>
+        </scene>
+
+        <!--Campus Map View Controller-->
+        <scene sceneID="SCN-MAP">
+            <objects>
+                <viewController id="MAP-VC" customClass="CampusMapViewController" customModule="ClubConnect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MAP-VIEW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAMPUS-MAP">
+                                <rect key="frame" x="16" y="119" width="361" height="550"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Waiting for location permission…" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="DISTANCE-LABEL">
+                                <rect key="frame" x="24" y="693" width="345" height="70"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-MAP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CAMPUS-MAP" firstAttribute="top" secondItem="SAFE-MAP" secondAttribute="top" constant="16" id="MAP-C1"/>
+                            <constraint firstItem="CAMPUS-MAP" firstAttribute="leading" secondItem="SAFE-MAP" secondAttribute="leading" constant="16" id="MAP-C2"/>
+                            <constraint firstItem="SAFE-MAP" firstAttribute="trailing" secondItem="CAMPUS-MAP" secondAttribute="trailing" constant="16" id="MAP-C3"/>
+                            <constraint firstItem="DISTANCE-LABEL" firstAttribute="top" secondItem="CAMPUS-MAP" secondAttribute="bottom" constant="20" id="MAP-C4"/>
+                            <constraint firstItem="DISTANCE-LABEL" firstAttribute="leading" secondItem="SAFE-MAP" secondAttribute="leading" constant="24" id="MAP-C5"/>
+                            <constraint firstItem="SAFE-MAP" firstAttribute="trailing" secondItem="DISTANCE-LABEL" secondAttribute="trailing" constant="24" id="MAP-C6"/>
+                            <constraint firstItem="SAFE-MAP" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DISTANCE-LABEL" secondAttribute="bottom" constant="20" id="MAP-C7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Campus Map" id="NAVITEM-MAP"/>
+                    <connections>
+                        <outlet property="distanceLabel" destination="DISTANCE-LABEL" id="OUT-DISTANCE"/>
+                        <outlet property="mapView" destination="CAMPUS-MAP" id="OUT-MAP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-MAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="500"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.3.fill" catalog="system" width="128" height="80"/>
+        <systemColor name="labelColor"><color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/></systemColor>
+        <systemColor name="secondaryLabelColor"><color red="0.2352941176" green="0.2352941176" blue="0.262745098" alpha="0.6" colorSpace="custom" customColorSpace="sRGB"/></systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor"><color red="0.9490196078" green="0.9490196078" blue="0.968627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/></systemColor>
+        <systemColor name="systemBackgroundColor"><color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/></systemColor>
+        <systemColor name="systemGreenColor"><color red="0.2039215686" green="0.7803921569" blue="0.3490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/></systemColor>
+    </resources>
+</document>
